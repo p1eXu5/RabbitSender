@@ -1,17 +1,25 @@
 ﻿<UserControl x:Class="RabbitSender.WpfClient.UserControls.NotificationListUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:RabbitSender.WpfClient.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400"
+             d:DesignHeight="450"
+             d:DesignWidth="400"
+             mc:Ignorable="d"
              >
-    <ListBox x:Name="m_treeView" ItemsSource="{Binding MessageModelList}" SelectedItem="{Binding SelectedMessageModelId}" MinWidth="200" HorizontalAlignment="Stretch">
+    <ListBox x:Name="m_treeView"
+             MinWidth="200"
+             HorizontalAlignment="Stretch"
+             ItemsSource="{Binding MessageModelList}"
+             SelectedItem="{Binding SelectedMessageModelId}"
+             >
         <ListBox.ItemTemplate>
             <DataTemplate>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" >
+                <StackPanel HorizontalAlignment="Stretch"
+                            Orientation="Vertical"
+                            >
                     <StackPanel.ContextMenu>
                         <ContextMenu>
                             <!--<MenuItem Header="Open File with VS Code" Command="{Binding OpenFileCommand}"/>
@@ -43,11 +51,18 @@
                                     />
                         </Grid>-->
                         <Border>
-                            <Label Content="{Binding MessageName}" FontSize="14" VerticalAlignment="Center"/>
+                            <Label Content="{Binding MessageName}"
+                                   VerticalAlignment="Center"
+                                   FontSize="14"
+                                   />
                         </Border>
                     </StackPanel>
 
-                    <TextBlock Text="{Binding RabbitEntityName}" FontSize="10" TextTrimming="WordEllipsis" Padding="16,0,0,0"  />
+                    <TextBlock Padding="16,0,0,0"
+                               Text="{Binding RabbitEntityName}"
+                               FontSize="10"
+                               TextTrimming="WordEllipsis"
+                               />
                 </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>

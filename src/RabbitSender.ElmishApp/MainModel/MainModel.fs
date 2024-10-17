@@ -1,7 +1,7 @@
 namespace RabbitSender.ElmishApp.Models
 
 open RabbitSender.ElmishApp.Interfaces
-open System.Text.Json
+open RabbitSender.ElmishApp
 
 type MainModel =
     {
@@ -39,7 +39,7 @@ module MainModel =
             //     RabbitMQ.Client.ExchangeType.Direct
             //     (.Generate() |> box)
             //     send'<>
-            //     (fun s -> JsonSerializer.Deserialize<>(s))
+            //     (fun s -> JsonSerializer.Deserialize<>(s, JsonHelper.JsonSerializerOptions))
         ]
 
     open System

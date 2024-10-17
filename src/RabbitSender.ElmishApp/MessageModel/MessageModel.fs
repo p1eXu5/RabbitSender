@@ -1,8 +1,7 @@
 namespace RabbitSender.ElmishApp.Models
 
 open System.Threading.Tasks
-
-
+open RabbitSender.ElmishApp
 
 type MessageModel =
     {
@@ -17,7 +16,6 @@ type MessageModel =
         SelectedExchangeTypeId: int option
     }
 
-
 module MessageModel =
 
     type Msg =
@@ -30,9 +28,6 @@ module MessageModel =
 
     open System.Text.Json
 
-    let options = JsonSerializerOptions()
-    options.WriteIndented <- true
-
     let init messageName rabbitEntityName host exchange dto send deserializer =
         {
             MessageName = messageName
@@ -41,7 +36,7 @@ module MessageModel =
             Dto = dto
             Exchange = None
             PayloadJson =
-                JsonSerializer.Serialize( dto, options )
+                JsonSerializer.Serialize(dto, JsonHelpers.jsonSerializerOptions)
             Send = send
             Deserializer = deserializer
             SelectedExchangeTypeId =

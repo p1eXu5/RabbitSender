@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Interfaces.fs" />
+    <Compile Include="JsonHelpers.fs" />
     <Compile Include="Infrastructure.fs" />
     <Compile Include="MessageModel\MessageModel.fs" />
     <Compile Include="MessageModel\MessageModel.Program.fs" />
@@ -20,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Elmish.WPF" Version="4.0.0-beta-45" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.8" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
@@ -32,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="7.0.0" />
+    <PackageReference Update="FSharp.Core" Version="8.0.401" />
   </ItemGroup>
 
 </Project>
