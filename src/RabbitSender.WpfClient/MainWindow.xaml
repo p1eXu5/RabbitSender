@@ -1,0 +1,45 @@
+﻿<Window x:Class="RabbitSender.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:RabbitSender.WpfClient"
+        xmlns:uc="clr-namespace:RabbitSender.WpfClient.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="800"
+        WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <materialDesign:ColorZone HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <DockPanel LastChildFill="True">
+            <materialDesign:Snackbar DockPanel.Dock="Bottom" 
+                                     HorizontalAlignment="Stretch"
+                                     MessageQueue="{Binding ErrorMessageQueue}"
+                                     ActionButtonStyle="{StaticResource MaterialDesignSnackbarActionDarkButton}"
+                                     />
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3" />
+                    <ColumnDefinition MinWidth="280" />
+                </Grid.ColumnDefinitions>
+
+                <uc:NotificationListUserControl Grid.Column="0" DataContext="{Binding}" />
+
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <uc:NotificationModelUserControl DataContext="{Binding SelectedMessage}"
+                                                 Grid.Column="2" 
+                                                 Visibility="{Binding DataContext.IsMessageModelSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+            </Grid>
+        </DockPanel>
+    </materialDesign:ColorZone>
+</Window>

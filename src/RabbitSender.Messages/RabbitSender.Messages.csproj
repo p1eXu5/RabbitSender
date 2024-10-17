@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>CS1591;SA1600</NoWarn>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoBogus" Version="2.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Scope\Message\Dto\" />
+    <Folder Include="Scope\Message\Faker\" />
+  </ItemGroup>
+
+</Project>
